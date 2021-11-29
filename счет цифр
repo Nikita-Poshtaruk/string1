@@ -1,0 +1,23 @@
+#include <iostream>
+
+using namespace std;
+
+int countNumFromString(const char* str)
+{
+    //const char*  str = "hello 15";
+    int count = 0;
+    for (size_t i = 0; str[i] != 0; i++)
+    {
+        if (str[i] >= (char)48 && str[i] <= (char)57)
+            count += 1;
+    }
+    return count;
+}
+
+int main()
+{
+    cout << "input string\n";
+    char* str = new char;
+    cin >> str;
+    cout << countNumFromString(str) << "\n";
+}
