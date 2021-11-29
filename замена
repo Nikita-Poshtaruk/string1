@@ -1,0 +1,40 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+string Exchange(string a, string b, string c)
+{
+    for (int i = a.length(); i >= 0; i--)
+    {
+        if (a.substr(i, b.length()) == b)
+        {
+            a.insert(i, c);
+            a.erase(i + c.length(), b.length());
+        }
+    }
+    return a;
+}
+
+
+int main()
+{
+
+    setlocale(0, "rus");
+    string a, b, c;
+    cout << "Введите строку:" << endl;
+    getline(cin, a);
+    cout << "Введите слово(символ из строки):" << endl;
+    getline(cin, b);
+    cout << "Введите на что заменить:" << endl;
+    getline(cin, c);
+    cout << "Результат работы программы:" << endl;
+    a = Exchange(a, b, c);
+    cout << a << endl;
+    cout << "____________________________________________________________________________"<<endl;
+ 
+
+
+    system("pause");
+    return 0;
+}
