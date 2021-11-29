@@ -1,0 +1,55 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+	setlocale(LC_ALL, "Russian");
+
+	std::string text;
+	std::cout << "Введите текст, заканчивающийся слэшем (/):" << std::endl;
+	std::getline(std::cin, text);
+
+	while (text.empty())
+	{
+		std::cout << "Вы не ввели текст! Повторите попытку." << std::endl;
+		std::getline(std::cin, text);
+	}
+
+	while (text[text.size() - 1] != '/')
+	{
+		std::cout << "Строка не заканчивается слэшем (/)! Повторите попытку." << std::endl;
+		std::getline(std::cin, text);
+	}
+
+	
+
+
+	for (int i = 0; i <= text.size(); i++)
+	{
+		
+		if (text[i] == '.' || text[i] == '!' || text[i] == '?')
+		{
+			int k = i + 1; 
+
+		
+			while (text[k] == ' ')
+			{
+				k++;
+			}
+
+		
+			if (islower(text[k]))
+			{
+				text[k] = toupper(text[k]);
+			}
+		}
+	}
+
+	std::cout << "-----------------------------------------------------" << std::endl;
+	std::cout << text << std::endl;
+
+	system("pause");
+
+	return 0;
+}
